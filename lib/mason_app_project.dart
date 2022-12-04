@@ -1,6 +1,6 @@
-library mason_app_project;
+// ignore_for_file: constant_identifier_names
 
-import 'dart:io';
+library mason_app_project;
 
 export 'src/mason_app_project_base.dart';
 
