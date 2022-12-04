@@ -1,7 +1,6 @@
 import 'package:change_case/change_case.dart';
-import 'package:project_cli/src/commands/add/actions/screen/screen_command.dart';
 
-extension $Widgets on ScreenParameters {
+extension $Widgets on ScreenTemplate {
   String get widgetsDartPath =>
       "/lib/ui/screens/${screenName.toSnakeCase()}/widgets";
 }

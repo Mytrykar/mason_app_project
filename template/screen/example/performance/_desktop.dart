@@ -1,7 +1,6 @@
-import 'package:change_case/change_case.dart';
-import 'package:project_cli/src/commands/add/actions/screen/screen_command.dart';
+import '../../../../lib/src/input/screen_param.dart';
 
-extension $DesktopView on ScreenParameters {
+extension $DesktopView on ScreenTemplate {
   String get desktopViewContent => """
 part of 'screen.dart';
 

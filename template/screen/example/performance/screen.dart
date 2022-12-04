@@ -1,7 +1,6 @@
 import 'package:change_case/change_case.dart';
-import 'package:project_cli/src/commands/add/actions/screen/screen_command.dart';
 
-extension $ExampleScreen on ScreenParameters {
+extension $ExampleScreen on ScreenTemplate {
   String get examplescreenContent => """
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

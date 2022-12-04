@@ -1,7 +1,6 @@
 import 'package:change_case/change_case.dart';
-import 'package:project_cli/src/commands/add/actions/screen/screen_command.dart';
 
-extension $TabletView on ScreenParameters {
+extension $TabletView on ScreenTemplate {
   String get tabletViewContent => """
 part of 'screen.dart';
 

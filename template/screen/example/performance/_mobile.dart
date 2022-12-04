@@ -1,7 +1,6 @@
 import 'package:change_case/change_case.dart';
-import 'package:project_cli/src/commands/add/actions/screen/screen_command.dart';
 
-extension $MobileView on ScreenParameters {
+extension $MobileView on ScreenTemplate {
   String get mobileViewContent => """
 part of 'screen.dart';
 
