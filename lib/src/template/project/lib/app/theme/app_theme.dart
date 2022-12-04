@@ -1,18 +1,25 @@
-// library app_theme;
+import 'package:mason_app_project/src/template/project_template.dart';
 
-// import 'package:flutter/material.dart';
-// import 'package:project_app/app/core/base/base_theme.dart';
-// part 'themes/dark_theme.dart';
-// part 'themes/light_theme.dart';
+extension AppTheme on FlutterProjectTemplate {
+  String get templateAppTheme => """
+library app_theme;
 
-// class AppTheme {
-//   static final BaseTheme defaultLightTheme = LightTheme();
-//   static final BaseTheme defaultDarkTheme = DarkTheme();
+import 'package:flutter/material.dart';
+import 'package:$projectName/app/core/base/base_theme.dart';
+part 'themes/dark_theme.dart';
+part 'themes/light_theme.dart';
 
-//   static final List<BaseTheme> themes = [
-//     // base_light
-//     LightTheme(),
-//     // base_dark
-//     DarkTheme(),
-//   ];
-// }
+class AppTheme {
+  static final BaseTheme defaultLightTheme = LightTheme();
+  static final BaseTheme defaultDarkTheme = DarkTheme();
+
+  static final List<BaseTheme> themes = [
+    // base_light
+    LightTheme(),
+    // base_dark
+    DarkTheme(),
+  ];
+}
+}
+""";
+}

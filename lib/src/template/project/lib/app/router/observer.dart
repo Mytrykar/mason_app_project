@@ -1,40 +1,48 @@
-// part of 'router.dart';
+import 'package:mason_app_project/src/template/project_template.dart';
+import 'package:mason_app_project/mason_app_project.dart' as e;
 
-// class _DebugObserver extends NavigatorObserver {
-//   Logger log = getLogger("DebugRouteObserver");
+extension Router on FlutterProjectTemplate {
+  String get templateRouter {
+    return '''part of 'router.dart';
 
-//   @override
-//   void didPop(Route route, Route? previousRoute) {
-//     log.i("""Pop
-// Route transition: ${previousRoute?.settings.name} to ${route.settings.name}""");
-//   }
+class _DebugObserver extends NavigatorObserver {
+  Logger log = getLogger("DebugRouteObserver");
 
-//   @override
-//   void didPush(Route route, Route? previousRoute) {
-//     log.i("""Push
-// Route transition: ${previousRoute?.settings.name} to ${route.settings.name}""");
-//   }
+  @override
+  void didPop(Route route, Route? previousRoute) {
+    log.i("""Pop
+Route transition: ${e.Dollar.dollar}{previousRoute?.settings.name} to ${e.Dollar.dollar}{route.settings.name}""");
+  }
 
-//   @override
-//   void didRemove(Route route, Route? previousRoute) {
-//     log.i("""Remove
-// Route transition: ${previousRoute?.settings.name} to ${route.settings.name}""");
-//   }
+  @override
+  void didPush(Route route, Route? previousRoute) {
+    log.i("""Push
+Route transition: ${e.Dollar.dollar}{previousRoute?.settings.name} to ${e.Dollar.dollar}{route.settings.name}""");
+  }
 
-//   @override
-//   void didReplace({Route? newRoute, Route? oldRoute}) {
-//     log.i("""Replace
-// Route transition: ${oldRoute?.settings.name} to ${newRoute?.settings.name}""");
-//   }
+  @override
+  void didRemove(Route route, Route? previousRoute) {
+    log.i("""Remove
+Route transition: ${e.Dollar.dollar}{previousRoute?.settings.name} to ${e.Dollar.dollar}{route.settings.name}""");
+  }
 
-//   @override
-//   void didStartUserGesture(Route route, Route? previousRoute) {
-//     log.i("""StartUserGesture
-// Route transition: ${previousRoute?.settings.name} to ${route.settings.name}""");
-//   }
+  @override
+  void didReplace({Route? newRoute, Route? oldRoute}) {
+    log.i("""Replace
+Route transition: ${e.Dollar.dollar}{oldRoute?.settings.name} to ${e.Dollar.dollar}{newRoute?.settings.name}""");
+  }
 
-//   @override
-//   void didStopUserGesture() {
-//     log.i("StopUserGesture");
-//   }
-// }
+  @override
+  void didStartUserGesture(Route route, Route? previousRoute) {
+    log.i("""StartUserGesture
+Route transition: ${e.Dollar.dollar}{previousRoute?.settings.name} to ${e.Dollar.dollar}{route.settings.name}""");
+  }
+
+  @override
+  void didStopUserGesture() {
+    log.i("StopUserGesture");
+  }
+}
+''';
+  }
+}

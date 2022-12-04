@@ -10,3 +10,7 @@ abstract class InputParam {
 
   InputParam({this.pathRoute, required this.projectName, this.screenName});
 }
+
+extension Dollar on String {
+  static const dollar = r"$";
+}

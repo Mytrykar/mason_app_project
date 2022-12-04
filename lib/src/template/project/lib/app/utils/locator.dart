@@ -1,16 +1,23 @@
-// import 'package:get_it/get_it.dart';
-// import 'package:logger/logger.dart';
-// import 'package:project_app/app/services/theme_servise.dart';
+import 'package:mason_app_project/src/template/project_template.dart';
 
-// import 'logger.dart';
+extension Locator on FlutterProjectTemplate {
+  String get templateLocator => """
+  import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
+import 'package:$projectName/app/services/theme_servise.dart';
 
-// GetIt locator = GetIt.instance;
+import 'logger.dart';
 
-// class LocatorInjector {
-//   static Logger log = getLogger('LocatorInjector');
+GetIt locator = GetIt.instance;
 
-//   static Future<void> setupLocator() async {
-//     log.d('Initializing Theme Service');
-//     locator.registerLazySingleton(() => ThemeServise("ThemeServise")..init());
-//   }
-// }
+class LocatorInjector {
+  static Logger log = getLogger('LocatorInjector');
+
+  static Future<void> setupLocator() async {
+    log.d('Initializing Theme Service');
+    locator.registerLazySingleton(() => ThemeServise("ThemeServise")..init());
+  }
+}
+
+""";
+}

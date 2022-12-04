@@ -1,20 +1,37 @@
-// // This file is created using project_cli. Cli only creates this file.
-// // You can edit this file without restrictions.
-// // Then execute
-// // --
-// // dart pub global run build_runner build -d
-// // --
-// // to generate the Go_router file.
-// // Gen Date 3.12.2022 Time 07.24
+import 'package:date_format/date_format.dart';
+import 'package:mason_app_project/src/template/project_template.dart';
+import 'package:mason_app_project/mason_app_project.dart' as e;
 
-// part of '../router.dart';
+extension Router on FlutterProjectTemplate {
+  String get templateRouter {
+    final n = DateTime.now();
+    String date =
+        formatDate(DateTime(n.year, n.month, n.day), [yyyy, '-', mm, '-', dd]);
+    String time = formatDate(
+        DateTime(n.year, n.month, n.day, n.hour, n.minute, n.second),
+        [HH, ':', nn, ':', ss]);
+    return """
+// This file is created using project_cli. Cli only creates this file.
+// You can edit this file without restrictions.
+// Then execute
+// --
+// dart pub global run build_runner build -d
+// --
+// to generate the Go_router file.
+// Gen Date $date Time $time
 
-// @TypedGoRoute<HomeRoute>(
-//   path: '/',
-// )
-// class HomeRoute extends GoRouteData {
-//   const HomeRoute();
+part of '../router.dart';
 
-//   @override
-//   Widget build(BuildContext context) => HomeScreen();
-// }
+@TypedGoRoute<HomeRoute>(
+  path: '/',
+)
+
+class HomeRoute extends GoRouteData {
+  const HomeRoute();
+
+  @override
+  Widget build(BuildContext context) => HomeScreen();
+}
+""";
+  }
+}

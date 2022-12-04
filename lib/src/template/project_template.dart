@@ -25,13 +25,13 @@ enum ProjectComponent {
   logger,
   utils,
   app,
-  screens_readme,
   error_widget,
   smart,
-  widgets_readme,
+  readme,
   jsons,
   fonts,
-  images
+  images,
+  screens
 }
 
 class FlutterProjectTemplate extends InputParam {
@@ -40,13 +40,11 @@ class FlutterProjectTemplate extends InputParam {
   Map<String, String> template(String path) => {};
 
   static const Map<ProjectComponent, String> tree = {
+    ProjectComponent.screens: "/lib/ui/screens",
     ProjectComponent.images: "/assets/images",
     ProjectComponent.fonts: "/assets/fonts",
     ProjectComponent.jsons: "/jsons",
-    ProjectComponent.widgets_readme: "/lib/ui/widgets/readme.md",
     ProjectComponent.smart: "/lib/ui/widgets/smart",
-    ProjectComponent.error_widget: "/lib/ui/widgets/dumb/error_widget.dart",
-    ProjectComponent.screens_readme: "/lib/ui/screens/readme.md",
     ProjectComponent.app: "/lib/app/app.dart",
     ProjectComponent.utils: "/lib/app/utils/utils.dart",
     ProjectComponent.logger: "/lib/app/utils/logger.dart",
@@ -56,19 +54,21 @@ class FlutterProjectTemplate extends InputParam {
     ProjectComponent.light_theme: "/lib/app/theme/themes/light_theme.dart",
     ProjectComponent.dark_theme: "/lib/app/theme/themes/dark_theme.dart",
     ProjectComponent.theme_servise: "/lib/app/services/theme_servise.dart",
-    ProjectComponent.router: "/lib/app/router/router.dart",
+    ProjectComponent.error_widget: "/lib/ui/widgets/dumb/error_widget.dart",
     ProjectComponent.nav_observer: "/lib/app/router/observer.dart",
+    ProjectComponent.router: "/lib/app/router/router.dart",
     ProjectComponent.routes: "/lib/app/router/routes",
     ProjectComponent.models: "/lib/app/models",
     ProjectComponent.helpers: "/lib/app/helpers",
-    ProjectComponent.base_widget: "/lib/app/core/base/base_widget.dart",
     ProjectComponent.base_view_controller:
         "/lib/app/core/base/base_view_controller.dart",
     ProjectComponent.base_theme: "/lib/app/core/base/base_theme.dart",
     ProjectComponent.base_servise: "/lib/app/core/base/base_servise.dart",
+    ProjectComponent.base_widget: "/lib/app/core/base/base_widget.dart",
     ProjectComponent.base_screen: "/lib/app/core/base/base_screen.dart",
     ProjectComponent.base_bloc_widget:
         "/lib/app/core/base/base_bloc_widget.dart",
     ProjectComponent.main: "/lib/main.dart",
+    ProjectComponent.readme: "/readme.md",
   };
 }
