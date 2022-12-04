@@ -8,10 +8,10 @@ import 'package:project_app/app/utils/logger.dart';
 import 'package:project_app/ui/screens/home/performance/home_view.dart';
 import 'package:project_app/ui/widgets/dumb/error_widget.dart' as e;
 
-part 'observer.dart';
-part 'router.g.dart';
-part 'routes/home_route.dart';
-part 'routes/example_route.dart';
+part '../../../../screen/template/observer.dart';
+part '../../../../screen/template/router.g.dart';
+part '../../../../screen/template/routes/home_route.dart';
+part '../../../../screen/template/routes/example_route.dart';
 
 // Gen_project_cli: /example
 @TypedGoRoute<ExampleRoute>(
