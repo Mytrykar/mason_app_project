@@ -1,13 +1,21 @@
-// import 'package:flutter/material.dart';
+import 'package:mason_app_project/src/template/project_template.dart';
 
-// import 'package:project_app/app/app.dart';
+extension Main on FlutterProjectTemplate {
+  String get mainTemplate => """import 'package:flutter/material.dart';
 
-// import 'app/utils/locator.dart';
+import 'package:$projectName/app/app.dart';
 
-// main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await LocatorInjector.setupLocator();
+import 'app/utils/locator.dart';
 
-//   /// Runs the app :)
-//   runApp(const ProjectApp());
-// }
+/// Entrance in your application, perform all previous initializations here.
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// Initial App Servises
+  await LocatorInjector.setupLocator();
+
+  /// Runs the app :)
+  runApp(const ProjectApp());
+}
+""";
+}
