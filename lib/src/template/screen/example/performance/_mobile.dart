@@ -5,7 +5,7 @@ extension $MobileView on ScreenTemplate {
   String get mobileViewContent => """
 part of 'screen.dart';
 
-class _Mobile extends GetView<${screenName.toPascalCase()}Controller> {
+class _Mobile extends GetView<${screenName!.toPascalCase()}Controller> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,5 +20,5 @@ class _Mobile extends GetView<${screenName.toPascalCase()}Controller> {
 """;
 
   String get mobileViewDartPath =>
-      "/lib/ui/screens/${screenName.toSnakeCase()}/performance/_mobile.dart";
+      "/lib/ui/screens/${screenName!.toSnakeCase()}/performance/_mobile.dart";
 }

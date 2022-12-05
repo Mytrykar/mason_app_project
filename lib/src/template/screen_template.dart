@@ -11,18 +11,29 @@ import 'package:mason_app_project/src/template/screen/example/performance/screen
 import 'package:mason_app_project/src/template/screen/example/widgets/widgets.dart';
 
 class ScreenTemplate {
+  // project_app
   final String projectName;
-  final String screenName;
+
+  //Home page
+  final String? screenName;
+
+  //ToHome
   final String routeName;
+
+  // /home
   final String route;
+  // :tag as String
+  final Map<String, dynamic>? qeryParams;
+
   final String path;
 
-  const ScreenTemplate(
-    this.path,
-    this.route, {
+  const ScreenTemplate({
+    required this.path,
+    required this.route,
+    this.qeryParams,
     required this.routeName,
     required this.projectName,
-    required this.screenName,
+    this.screenName,
   });
 
   bool get existScreen => File(path + indexDartPath).existsSync();
