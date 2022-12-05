@@ -1,9 +1,8 @@
 import 'package:date_format/date_format.dart';
 import 'package:mason_app_project/src/template/project_template.dart';
-import 'package:mason_app_project/mason_app_project.dart' as e;
 
-extension Router on FlutterProjectTemplate {
-  String get templateRouter {
+extension HomeRoute on FlutterProjectTemplate {
+  String get templateHomeRoute {
     final n = DateTime.now();
     String date =
         formatDate(DateTime(n.year, n.month, n.day), [yyyy, '-', mm, '-', dd]);

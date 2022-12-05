@@ -1,8 +1,8 @@
 import 'package:mason_app_project/src/template/project_template.dart';
 import 'package:mason_app_project/mason_app_project.dart' as e;
 
-extension Router on FlutterProjectTemplate {
-  String get templateRouter {
+extension AppRouter on FlutterProjectTemplate {
+  String get templateAppRouter {
     return """
 library app_router;
 

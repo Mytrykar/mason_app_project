@@ -1,13 +1,20 @@
-// import 'package:flutter/foundation.dart';
-// import 'package:flutter/widgets.dart';
-// import 'package:get/get.dart';
-// import 'package:project_app/app/core/base/base_view_controller.dart';
+import 'package:mason_app_project/src/template/project_template.dart';
 
-// // ignore: must_be_immutable
-// abstract class BaseBlocWidget<T extends BaseController> extends StatefulWidget {
-//   const BaseBlocWidget({super.key});
+extension BaseBlocWidget on FlutterProjectTemplate {
+  String get templateBaseBlocWidget {
+    return """
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:$projectName/app/core/base/base_view_controller.dart';
 
-//   final String? tag = null;
+abstract class BaseBlocWidget<T extends BaseController> extends StatefulWidget {
+  const BaseBlocWidget({super.key});
 
-//   T get controller => GetInstance().find<T>(tag: tag);
-// }
+  final String? tag = null;
+
+  T get controller => GetInstance().find<T>(tag: tag);
+}
+""";
+  }
+}

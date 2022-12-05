@@ -1,8 +1,8 @@
 import 'package:mason_app_project/src/template/project_template.dart';
 import 'package:mason_app_project/mason_app_project.dart' as e;
 
-extension Router on FlutterProjectTemplate {
-  String get templateRouter {
+extension NavigatorObserver on FlutterProjectTemplate {
+  String get templateNavigatorObserver {
     return '''part of 'router.dart';
 
 class _DebugObserver extends NavigatorObserver {
