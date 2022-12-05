@@ -22,4 +22,8 @@ extension Dollar on String {
 class MasonFlutterProject {
   static Map<FileSystemEntity, String> templateApp(String projectName, path) =>
       FlutterProjectTemplate(projectName: projectName).template(path);
+
+  static Map<FileSystemEntity, String> templateScreen(
+      String projectName, path, screenName,
+      {required List<String> locations, required List<String> loggerFile}) {}
 }

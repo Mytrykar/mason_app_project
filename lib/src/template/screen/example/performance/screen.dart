@@ -1,6 +1,5 @@
 import 'package:change_case/change_case.dart';
-
-import '../../gen_screen.dart';
+import 'package:mason_app_project/src/template/screen_template.dart';
 
 extension $ExampleScreen on ScreenTemplate {
   String get examplescreenContent => """
