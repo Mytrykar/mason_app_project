@@ -1,7 +1,7 @@
 import 'package:mason_app_project/src/template/project_template.dart';
 
 extension ErrorWidget on FlutterProjectTemplate {
-  String get mainTemplate => """import 'package:flutter/material.dart';
+  String get errorWidgetTemplate => """import 'package:flutter/material.dart';
 
 class ErrorWidget extends StatelessWidget {
   const ErrorWidget({Key? key}) : super(key: key);

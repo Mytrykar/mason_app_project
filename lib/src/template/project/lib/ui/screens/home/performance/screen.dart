@@ -1,7 +1,7 @@
 import 'package:mason_app_project/src/template/project_template.dart';
 
-extension Index on FlutterProjectTemplate {
-  String get templateIndex => """
+extension HomeScreen on FlutterProjectTemplate {
+  String get templateHomeScreen => """
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:$projectName/app/core/base/base_screen.dart';

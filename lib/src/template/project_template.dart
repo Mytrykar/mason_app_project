@@ -1,10 +1,39 @@
 // ignore_for_file: constant_identifier_names
-library lib;
+library project;
+
+import 'dart:io';
 
 import 'package:mason_app_project/mason_app_project.dart';
+import 'package:mason_app_project/src/template/project/readme.dart';
+import 'package:mason_app_project/src/template/project/lib/main.dart';
+import 'package:mason_app_project/src/template/project/lib/app/app.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_bloc_widget.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_screen.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_servise.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_theme.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_view_controller.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_widget.dart';
+import 'package:mason_app_project/src/template/project/lib/app/router/observer.dart';
+import 'package:mason_app_project/src/template/project/lib/app/router/router.dart';
+import 'package:mason_app_project/src/template/project/lib/app/router/routes/home_route.dart';
+import 'package:mason_app_project/src/template/project/lib/app/services/theme_servise.dart';
+import 'package:mason_app_project/src/template/project/lib/app/theme/app_theme.dart';
+import 'package:mason_app_project/src/template/project/lib/app/theme/themes/dark_theme.dart';
+import 'package:mason_app_project/src/template/project/lib/app/theme/themes/light_theme.dart';
+import 'package:mason_app_project/src/template/project/lib/app/utils/constants.dart';
+import 'package:mason_app_project/src/template/project/lib/app/utils/locator.dart';
+import 'package:mason_app_project/src/template/project/lib/app/utils/logger.dart';
+import 'package:mason_app_project/src/template/project/lib/app/utils/utils.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/index.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/performance/_desktop.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/performance/_mobile.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/performance/_tablet.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/performance/_watch.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/performance/screen.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/screens/home/performance/screen_controller.dart';
+import 'package:mason_app_project/src/template/project/lib/ui/widgets/dumb/error_widget.dart';
 
 enum ProjectComponent {
-  main,
   base_bloc_widget,
   base_screen,
   base_servise,
@@ -31,13 +60,61 @@ enum ProjectComponent {
   jsons,
   fonts,
   images,
-  screens
+  screens,
+  main,
 }
 
 class FlutterProjectTemplate extends InputParam {
   FlutterProjectTemplate({required super.projectName});
 
-  Map<String, String> template(String path) => {};
+  ///key path , value content
+  Map<FileSystemEntity, String> template(String path) => {
+        File(path + tree[ProjectComponent.base_bloc_widget]!):
+            templateBaseBlocWidget,
+        File(path + tree[ProjectComponent.base_screen]!): templateBaseScreen,
+        File(path + tree[ProjectComponent.base_servise]!): templateBaseService,
+        File(path + tree[ProjectComponent.base_theme]!): templateBaseTheme,
+        File(path + tree[ProjectComponent.base_view_controller]!):
+            templateBaseController,
+        File(path + tree[ProjectComponent.base_widget]!): templateBaseWidget,
+        Directory(path + tree[ProjectComponent.helpers]!): "",
+        Directory(path + tree[ProjectComponent.models]!): "",
+        File(path + tree[ProjectComponent.routes]!): templateHomeRoute,
+        File(path + tree[ProjectComponent.nav_observer]!):
+            templateNavigatorObserver,
+        File(path + tree[ProjectComponent.router]!): templateAppRouter,
+        File(path + tree[ProjectComponent.theme_servise]!):
+            templateThemeServise,
+        File(path + tree[ProjectComponent.dark_theme]!): templateDarkTheme,
+        File(path + tree[ProjectComponent.light_theme]!): templateLightTheme,
+        File(path + tree[ProjectComponent.app_theme]!): templateAppTheme,
+        File(path + tree[ProjectComponent.constants]!): templateConstants,
+        File(path + tree[ProjectComponent.locator]!): templateLocator,
+        File(path + tree[ProjectComponent.logger]!): templateLogger,
+        File(path + tree[ProjectComponent.utils]!): templateUtils,
+        File(path + tree[ProjectComponent.app]!): appTemplate,
+        File("$path/lib/ui/screens/home/performance/_desktop.dart"):
+            desktopViewContent,
+        File("$path/lib/ui/screens/home/performance/_mobile.dart"):
+            mobileViewContent,
+        File("$path/lib/ui/screens/home/performance/_tablet.dart"):
+            tabletViewContent,
+        File("$path/lib/ui/screens/home/performance/_watch.dart"):
+            watchViewContent,
+        File("$path/lib/ui/screens/home/performance/screen_controller.dart"):
+            exampleControllerContent,
+        File("$path/lib/ui/screens/home/performance/screen.dart"):
+            templateHomeScreen,
+        Directory("$path/lib/ui/screens/home/widgets"): "",
+        File("$path/lib/ui/screens/home/index.dart"): templateIndex,
+        File(path + tree[ProjectComponent.error_widget]!): errorWidgetTemplate,
+        Directory("$path/lib/ui/widgets/smart"): "",
+        File(path + tree[ProjectComponent.main]!): mainTemplate,
+        File(path + tree[ProjectComponent.readme]!): templateReadMe,
+        Directory("$path/jsons"): "",
+        Directory("$path/assets/images"): "",
+        Directory("$path/assets/fonts"): "",
+      };
 
   static const Map<ProjectComponent, String> tree = {
     ProjectComponent.screens: "/lib/ui/screens",
@@ -57,7 +134,7 @@ class FlutterProjectTemplate extends InputParam {
     ProjectComponent.error_widget: "/lib/ui/widgets/dumb/error_widget.dart",
     ProjectComponent.nav_observer: "/lib/app/router/observer.dart",
     ProjectComponent.router: "/lib/app/router/router.dart",
-    ProjectComponent.routes: "/lib/app/router/routes",
+    ProjectComponent.routes: "/lib/app/router/routes/home_route",
     ProjectComponent.models: "/lib/app/models",
     ProjectComponent.helpers: "/lib/app/helpers",
     ProjectComponent.base_view_controller:

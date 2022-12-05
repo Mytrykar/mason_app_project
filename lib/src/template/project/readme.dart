@@ -1,7 +1,7 @@
 import 'package:mason_app_project/src/template/project_template.dart';
 
-extension Main on FlutterProjectTemplate {
-  String get mainTemplate =>
+extension ReadMe on FlutterProjectTemplate {
+  String get templateReadMe =>
       """Screens - implementation of the interface of your program.
    This is everything related to the interface, for example widgets with controllers, the behavior of widgets,
 asynchronous requests to the database, etc.
