@@ -3,6 +3,7 @@ library mason_app_project;
 import 'dart:io';
 
 import 'src/template/project_template.dart';
+import 'src/template/screen_template.dart';
 
 abstract class InputParam {
   // Sing in
@@ -23,9 +24,14 @@ class MasonFlutterProject {
   static Map<FileSystemEntity, String> templateApp(String projectName, path) =>
       FlutterProjectTemplate(projectName: projectName).template(path);
 
-  static Map<FileSystemEntity, String> templateScreen(
-          String projectName, path, screenName,
-          {required List<String> locations,
-          required List<String> routerFile}) =>
-      {};
+  static Map<FileSystemEntity, String> templateScreen(String projectName, path,
+          screenName, route, routeName, List<String>? qeryParams) =>
+      ScreenTemplate(
+              path: path,
+              projectName: projectName,
+              route: route,
+              routeName: routeName,
+              screenName: screenName,
+              qeryParams: qeryParams)
+          .template;
 }

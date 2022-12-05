@@ -9,21 +9,23 @@ import 'package:mason_app_project/src/template/screen/example/performance/_watch
 import 'package:mason_app_project/src/template/screen/example/performance/screen.dart';
 import 'package:mason_app_project/src/template/screen/example/performance/screen_controller.dart';
 import 'package:mason_app_project/src/template/screen/example/widgets/widgets.dart';
+import 'package:mason_app_project/src/template/screen/router/gen_project_cli.dart';
+import 'package:mason_app_project/src/template/screen/router/routes/example_route.dart';
 
 class ScreenTemplate {
   // project_app
   final String projectName;
 
   //Home page
-  final String? screenName;
+  final String screenName;
 
   //ToHome
   final String routeName;
 
-  // /home
+  // /home/{:tag}
   final String route;
-  // :tag as String
-  final Map<String, dynamic>? qeryParams;
+  // String tag
+  final List<String>? qeryParams;
 
   final String path;
 
@@ -33,7 +35,7 @@ class ScreenTemplate {
     this.qeryParams,
     required this.routeName,
     required this.projectName,
-    this.screenName,
+    required this.screenName,
   });
 
   bool get existScreen => File(path + indexDartPath).existsSync();
@@ -54,7 +56,8 @@ class ScreenTemplate {
     }
     result.addEntries(
       [
-        MapEntry(File(path + genPath), ""),
+        MapEntry(File(path + genPath), templateAppRouter),
+        MapEntry(File(path + genPathDenRoute), templateDenRoute),
       ],
     );
     return result;

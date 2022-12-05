@@ -13,13 +13,13 @@ part '_mobile.dart';
 part '_tablet.dart';
 part '_watch.dart';
 
-class ${screenName!.toPascalCase()}Screen extends BaseScreen<${screenName!.toPascalCase()}Controller> {
-  ${screenName!.toPascalCase()}Screen({super.key});
+class ${screenName.toPascalCase()}Screen extends BaseScreen<${screenName.toPascalCase()}Controller> {
+  ${screenName.toPascalCase()}Screen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetX(
-        init: ${screenName!.toPascalCase()}Controller(),
+        init: ${screenName.toPascalCase()}Controller(),
         autoRemove: true,
         builder: (i) => screen.responsiveValue(
               desktop: _Desktop(),
@@ -32,5 +32,5 @@ class ${screenName!.toPascalCase()}Screen extends BaseScreen<${screenName!.toPas
 """;
 
   String get examplescreenDartPath =>
-      "/lib/ui/screens/${screenName!.toSnakeCase()}/performance/screen.dart";
+      "/lib/ui/screens/${screenName.toSnakeCase()}/performance/screen.dart";
 }

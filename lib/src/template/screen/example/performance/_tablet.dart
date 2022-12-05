@@ -5,7 +5,7 @@ extension $TabletView on ScreenTemplate {
   String get tabletViewContent => """
 part of 'screen.dart';
 
-class _Tablet extends GetView<${screenName!.toPascalCase()}Controller> {
+class _Tablet extends GetView<${screenName.toPascalCase()}Controller> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,5 +20,5 @@ class _Tablet extends GetView<${screenName!.toPascalCase()}Controller> {
 """;
 
   String get tabletViewDartPath =>
-      "/lib/ui/screens/${screenName!.toSnakeCase()}/performance/_tablet.dart";
+      "/lib/ui/screens/${screenName.toSnakeCase()}/performance/_tablet.dart";
 }

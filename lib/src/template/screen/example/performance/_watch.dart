@@ -5,7 +5,7 @@ extension $WatchView on ScreenTemplate {
   String get watchViewContent => """
 part of 'screen.dart';
 
-class _Watch extends GetView<${screenName!.toPascalCase()}Controller> {
+class _Watch extends GetView<${screenName.toPascalCase()}Controller> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,5 +20,5 @@ class _Watch extends GetView<${screenName!.toPascalCase()}Controller> {
 """;
 
   String get watchViewDartPath =>
-      "/lib/ui/screens/${screenName!.toSnakeCase()}/performance/_watch.dart";
+      "/lib/ui/screens/${screenName.toSnakeCase()}/performance/_watch.dart";
 }

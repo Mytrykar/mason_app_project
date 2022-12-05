@@ -5,7 +5,7 @@ extension AppRouter on ScreenTemplate {
   String get templateAppRouter {
     return """
 @TypedGoRoute<${routeName.toPascalCase()}Route>(
-  path: '$routeName',
+  path: '$route',
 )
 """;
   }
