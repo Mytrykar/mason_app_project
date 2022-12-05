@@ -16,9 +16,7 @@ import 'package:$projectName/ui/widgets/dumb/error_widget.dart' as e;
 
 part 'observer.dart';
 part 'router.g.dart';
-// Routing generated, do not remove comments
-//Gen_routes_with_cli
-
+part 'gen.dart';
 
 
 class AppRouter {

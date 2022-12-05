@@ -3,7 +3,7 @@ import 'package:mason_app_project/src/template/screen_template.dart';
 
 extension $Index on ScreenTemplate {
   String get indexDartContent => """
-library ${screenName..toSnakeCase()};
+library ${screenName.toSnakeCase()};
 
 export 'performance/${screenName.toSnakeCase()}.dart';
 """;

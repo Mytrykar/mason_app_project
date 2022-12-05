@@ -15,6 +15,7 @@ import 'package:mason_app_project/src/template/project/lib/app/core/base/base_vi
 import 'package:mason_app_project/src/template/project/lib/app/core/base/base_widget.dart';
 import 'package:mason_app_project/src/template/project/lib/app/router/observer.dart';
 import 'package:mason_app_project/src/template/project/lib/app/router/router.dart';
+import 'package:mason_app_project/src/template/project/lib/app/router/gen_project_cli.dart';
 import 'package:mason_app_project/src/template/project/lib/app/router/routes/home_route.dart';
 import 'package:mason_app_project/src/template/project/lib/app/services/theme_servise.dart';
 import 'package:mason_app_project/src/template/project/lib/app/theme/app_theme.dart';
@@ -62,6 +63,7 @@ enum ProjectComponent {
   images,
   screens,
   main,
+  gen_project_cli
 }
 
 class FlutterProjectTemplate extends InputParam {
@@ -114,9 +116,11 @@ class FlutterProjectTemplate extends InputParam {
         Directory("$path/jsons"): "",
         Directory("$path/assets/images"): "",
         Directory("$path/assets/fonts"): "",
+        File(path + tree[ProjectComponent.gen_project_cli]!): templateGetInCli,
       };
 
   static const Map<ProjectComponent, String> tree = {
+    ProjectComponent.gen_project_cli: "/lib/app/router/gen_project_cli.dart",
     ProjectComponent.screens: "/lib/ui/screens",
     ProjectComponent.images: "/assets/images",
     ProjectComponent.fonts: "/assets/fonts",

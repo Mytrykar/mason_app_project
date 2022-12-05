@@ -21,10 +21,6 @@ extension HomeRoute on FlutterProjectTemplate {
 
 part of '../router.dart';
 
-@TypedGoRoute<HomeRoute>(
-  path: '/',
-)
-
 class HomeRoute extends GoRouteData {
   const HomeRoute();
 

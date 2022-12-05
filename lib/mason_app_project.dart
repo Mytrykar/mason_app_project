@@ -24,6 +24,8 @@ class MasonFlutterProject {
       FlutterProjectTemplate(projectName: projectName).template(path);
 
   static Map<FileSystemEntity, String> templateScreen(
-      String projectName, path, screenName,
-      {required List<String> locations, required List<String> loggerFile}) {}
+          String projectName, path, screenName,
+          {required List<String> locations,
+          required List<String> routerFile}) =>
+      {};
 }
