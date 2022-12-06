@@ -1,22 +1,23 @@
+import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/bloc_widget_template.dart';
 
 extension WidgetTemplate on BlocWidgetTemplate {
   String get templateBlocWidget => """
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_app/app/core/base/base_bloc_widget.dart';
-import 'package:project_app/ui/screens/example/performance/screen_controller.dart';
-import 'package:project_app/ui/screens/example/widgets/example_bloc_widget.dart/bloc/bloc.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_bloc_widget.dart';
+import 'package:${projectName.toSnakeCase()}/ui/screens/${parent.toSnakeCase()}/performance/screen_controller.dart';
+import 'package:${projectName.toSnakeCase()}/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget.dart/bloc/bloc.dart';
 
-class ExampleBlocWidget extends BaseBlocWidget<ExampleScreenController> {
-  const ExampleBlocWidget({super.key});
+class ${widgetName.toPascalCase()}BlocWidget extends BaseBlocWidget<${parent.toPascalCase()}ScreenController> {
+  const ${widgetName.toPascalCase()}BlocWidget({super.key});
 
   @override
-  State<ExampleBlocWidget> createState() => _ExampleBlocWidgetState();
+  State<${widgetName.toPascalCase()}BlocWidget> createState() => _${widgetName.toPascalCase()}BlocWidgetState();
 }
 
-class _ExampleBlocWidgetState extends State<ExampleBlocWidget> {
-  ExampleBloc bloc = ExampleBloc();
+class _${widgetName.toPascalCase()}BlocWidgetState extends State<${widgetName.toPascalCase()}BlocWidget> {
+  ${widgetName.toPascalCase()}Bloc bloc = ${widgetName.toPascalCase()}Bloc();
 
   @override
   void initState() {
@@ -26,9 +27,12 @@ class _ExampleBlocWidgetState extends State<ExampleBlocWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ExampleBloc, ExampleState>(
+    return BlocConsumer<${widgetName.toPascalCase()}Bloc, ${widgetName.toPascalCase()}State>(
       bloc: bloc,
-      listener: (context, state) {},
+      listener: (context, state) {
+        //TODO You can make callbacks in ${widgetName.toPascalCase()}ScreenController to rearrange other widgets
+        // Example: widget.controller.rebuildOtherWidget(param);
+      },
       builder: (context, state) {
         if (state is InitialState) {
           return const SizedBox.expand();
@@ -39,7 +43,7 @@ class _ExampleBlocWidgetState extends State<ExampleBlocWidget> {
           );
         }
         if (state is SuccessState) {
-          return Text(state.data);
+          return Text(state.data.toString);
         }
         return SizedBox.expand();
       },

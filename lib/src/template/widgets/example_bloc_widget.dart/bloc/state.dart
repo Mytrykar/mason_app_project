@@ -1,19 +1,26 @@
-// part of 'bloc.dart';
+import 'package:change_case/change_case.dart';
+import 'package:mason_app_project/src/template/bloc_widget_template.dart';
 
-// abstract class ExampleState extends Equatable {
-//   @override
-//   // TODO: implement props
-//   List<Object?> get props => [];
-// }
+extension WidgetTemplate on BlocWidgetTemplate {
+  String get templateBlocWidget => """
+part of 'bloc.dart';
 
-// class InitialState extends ExampleState {}
+abstract class ${widgetName.toPascalCase()}State extends Equatable {
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}
 
-// class LoadingState extends ExampleState {}
+class InitialState extends ${widgetName.toPascalCase()}State {}
 
-// class SuccessState extends ExampleState {
-//   final String data = "data";
+class LoadingState extends ${widgetName.toPascalCase()}State {}
 
-//   @override
-//   // TODO: implement props
-//   List<Object?> get props => [data];
-// }
+class SuccessState extends ${widgetName.toPascalCase()}State {
+  final String data = "data";
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [data];
+}
+""";
+}
