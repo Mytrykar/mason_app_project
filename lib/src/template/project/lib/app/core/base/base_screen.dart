@@ -1,3 +1,4 @@
+import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/project_template.dart';
 
 extension BaseScreen on FlutterProjectTemplate {
@@ -5,7 +6,7 @@ extension BaseScreen on FlutterProjectTemplate {
     return """
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:$projectName/app/core/base/base_view_controller.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_view_controller.dart';
 
 abstract class BaseScreen<T extends BaseController>
     extends GetResponsiveView<T> {

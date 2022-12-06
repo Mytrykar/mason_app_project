@@ -1,3 +1,4 @@
+import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/project_template.dart';
 
 extension BaseBlocWidget on FlutterProjectTemplate {
@@ -6,7 +7,7 @@ extension BaseBlocWidget on FlutterProjectTemplate {
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:$projectName/app/core/base/base_view_controller.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_view_controller.dart';
 
 abstract class BaseBlocWidget<T extends BaseController> extends StatefulWidget {
   const BaseBlocWidget({super.key});

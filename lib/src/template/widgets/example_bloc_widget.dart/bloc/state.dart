@@ -10,7 +10,7 @@
 
 // class LoadingState extends ExampleState {}
 
-// class DoneState extends ExampleState {
+// class SuccessState extends ExampleState {
 //   final String data = "data";
 
 //   @override

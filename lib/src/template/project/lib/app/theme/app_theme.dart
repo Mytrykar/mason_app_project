@@ -1,3 +1,4 @@
+import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/project_template.dart';
 
 extension AppTheme on FlutterProjectTemplate {
@@ -5,7 +6,7 @@ extension AppTheme on FlutterProjectTemplate {
 library app_theme;
 
 import 'package:flutter/material.dart';
-import 'package:$projectName/app/core/base/base_theme.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_theme.dart';
 part 'themes/dark_theme.dart';
 part 'themes/light_theme.dart';
 

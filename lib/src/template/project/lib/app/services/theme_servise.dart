@@ -1,3 +1,4 @@
+import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/project_template.dart';
 import 'package:mason_app_project/mason_app_project.dart' as e;
 
@@ -6,9 +7,9 @@ extension ThemeServise on FlutterProjectTemplate {
     return """
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:$projectName/app/core/base/base_servise.dart';
-import 'package:$projectName/app/core/base/base_theme.dart';
-import 'package:$projectName/app/theme/app_theme.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_servise.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_theme.dart';
+import 'package:${projectName.toSnakeCase()}/app/theme/app_theme.dart';
 
 class ThemeServise extends BaseService {
   ThemeServise(super.title);

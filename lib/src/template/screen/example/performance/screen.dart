@@ -5,8 +5,8 @@ extension $ExampleScreen on ScreenTemplate {
   String get examplescreenContent => """
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:$projectName/app/core/base/base_screen.dart';
-import 'package:$projectName/ui/screens/example/performance/screen_controller.dart';
+import 'package:${projectName.toSnakeCase()}/app/core/base/base_screen.dart';
+import 'package:${projectName.toSnakeCase()}/ui/screens/example/performance/screen_controller.dart';
 
 part '_desktop.dart';
 part '_mobile.dart';

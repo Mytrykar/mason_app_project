@@ -1,9 +1,10 @@
+import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/project_template.dart';
 
 extension Main on FlutterProjectTemplate {
   String get mainTemplate => """import 'package:flutter/material.dart';
 
-import 'package:$projectName/app/app.dart';
+import 'package:${projectName.toSnakeCase()}/app/app.dart';
 
 import 'app/utils/locator.dart';
 

@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'src/template/project_template.dart';
 import 'src/template/screen_template.dart';
+import 'src/template/widget_template.dart';
 
 abstract class InputParam {
   // Sing in
@@ -34,4 +35,11 @@ class MasonFlutterProject {
               screenName: screenName,
               qeryParams: qeryParams)
           .template;
+
+  static MapEntry<FileSystemEntity, String> templateGetWidget(
+          {required String projectName,
+          required String widgetName,
+          required String parent,
+          required String path}) =>
+      GetWidgetTemplate(projectName, widgetName, parent, path).template;
 }
