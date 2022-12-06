@@ -3,7 +3,7 @@ import 'package:mason_app_project/src/template/bloc_widget_template.dart';
 
 extension WidgetTemplate on BlocWidgetTemplate {
   String get templateBlocWidget {
-    //TODO реалізовати загрузку моделі
+    final modelData = modelName != null ? "provider.data" : "";
     return """
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,10 +18,13 @@ class ${widgetName.toPascalCase()}Bloc extends Bloc<${widgetName.toPascalCase()}
     on<GetApiEvent>((event, emit) async {
       emit(LoadingState());
       await Future.delayed(const Duration(seconds: 2));
-      emit(SuccessState());
+      emit(SuccessState($modelData));
     });
   }
 }
 """;
   }
+
+  String get pathEvent =>
+      "/lib/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget/bloc/bloc.dart";
 }

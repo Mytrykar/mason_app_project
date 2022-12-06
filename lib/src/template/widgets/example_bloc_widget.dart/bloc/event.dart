@@ -1,8 +1,8 @@
 import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/bloc_widget_template.dart';
 
-extension StateTemplate on BlocWidgetTemplate {
-  String get templateState {
+extension EventTemplate on BlocWidgetTemplate {
+  String get templateEvent {
     return """
 part of 'bloc.dart';
 
@@ -12,6 +12,6 @@ class GetApiEvent extends ${widgetName.toPascalCase()}Event {}
 """;
   }
 
-  String get pathBlocState =>
+  String get pathEvent =>
       "/lib/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget/bloc/event.dart";
 }
