@@ -2,7 +2,7 @@ import 'package:change_case/change_case.dart';
 import 'package:date_format/date_format.dart';
 import 'package:mason_app_project/src/template/screen_template.dart';
 
-extension DenRoute on ScreenTemplate {
+extension GenRoute on ScreenTemplate {
   String get templateDenRoute {
     final n = DateTime.now();
     String date =
@@ -46,5 +46,6 @@ class ${routeName.toPascalCase()}Route extends GoRouteData {
 """;
   }
 
-  String get genPathDenRoute => "/lib/app/router/gen_project_cli.dart";
+  String get genPathDenRoute =>
+      "/lib/app/router/routes/${routeName.toSnakeCase()}_routes.dart";
 }
