@@ -5,6 +5,7 @@ import 'package:mason_app_project/src/template/widgets/example_bloc_widget/bloc/
 import 'package:mason_app_project/src/template/widgets/example_bloc_widget/bloc/provider.dart';
 import 'package:mason_app_project/src/template/widgets/example_bloc_widget/bloc/state.dart';
 import 'package:mason_app_project/src/template/widgets/example_bloc_widget/example_bloc_widget.dart';
+import 'package:mason_app_project/src/template/widgets/example_bloc_widget/models/example/example_model.dart';
 
 class BlocWidgetTemplate {
   // project_app
@@ -22,11 +23,9 @@ class BlocWidgetTemplate {
   // jsons/response.json
   final String? responseJsonPath;
 
-  // final Map<String,dynamic>
-
   BlocWidgetTemplate(
       {required this.modelName,
-      required this.modelPath,
+      required this.responseJsonPath,
       required this.projectName,
       required this.widgetName,
       required this.parent,
@@ -38,7 +37,8 @@ class BlocWidgetTemplate {
         File(path + pathEvent): templateEvent,
         File(path + pathState): templateState,
         File(path + pathProvider): templateProvider,
-        if (responseJsonPath != null) File(path+):modelTemplate
+        if (responseJsonPath != null && modelName != null)
+          File(path + pathModel): modelTemplate
       };
   // [num], [String], [bool], [Null], [List] or [Map] value.
   String get modelTemplate {}
