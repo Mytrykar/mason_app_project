@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:${projectName.toSnakeCase()}/app/core/base/base_bloc_widget.dart';
 import 'package:${projectName.toSnakeCase()}/ui/screens/${parent.toSnakeCase()}/performance/screen_controller.dart';
-import 'package:${projectName.toSnakeCase()}/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget.dart/bloc/bloc.dart';
+import 'package:${projectName.toSnakeCase()}/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget/bloc/bloc.dart';
 
 class ${widgetName.toPascalCase()}BlocWidget extends BaseBlocWidget<${parent.toPascalCase()}ScreenController> {
   const ${widgetName.toPascalCase()}BlocWidget({super.key});
@@ -51,4 +51,7 @@ class _${widgetName.toPascalCase()}BlocWidgetState extends State<${widgetName.to
   }
 }
 """;
+
+  String get pathBlocWidget =>
+      "/lib/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget/${widgetName.toSnakeCase()}_bloc_widget.dart";
 }
