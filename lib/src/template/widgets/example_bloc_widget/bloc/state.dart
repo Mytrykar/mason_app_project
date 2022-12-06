@@ -27,6 +27,6 @@ class SuccessState extends ${widgetName.toPascalCase()}State {
 """;
   }
 
-  String get pathBlocState =>
+  String get pathState =>
       "/lib/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget/bloc/state.dart";
 }

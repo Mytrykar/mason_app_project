@@ -1,8 +1,8 @@
 import 'package:change_case/change_case.dart';
 import 'package:mason_app_project/src/template/bloc_widget_template.dart';
 
-extension WidgetTemplate on BlocWidgetTemplate {
-  String get templateBlocWidget {
+extension BlocTemplate on BlocWidgetTemplate {
+  String get templateBloc {
     final modelData = modelName != null ? "provider.data" : "";
     return """
 import 'package:equatable/equatable.dart';
@@ -25,6 +25,6 @@ class ${widgetName.toPascalCase()}Bloc extends Bloc<${widgetName.toPascalCase()}
 """;
   }
 
-  String get pathEvent =>
+  String get pathBloc =>
       "/lib/ui/screens/${parent.toSnakeCase()}/widgets/${widgetName.toSnakeCase()}_bloc_widget/bloc/bloc.dart";
 }
