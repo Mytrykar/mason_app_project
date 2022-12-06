@@ -37,7 +37,7 @@ class BlocWidgetTemplate {
         File(path + pathEvent): templateEvent,
         File(path + pathState): templateState,
         File(path + pathProvider): templateProvider,
-        if (responseJsonPath != null && modelName != null)
+        if (responseJsonPath != null || modelName != null)
           File(path + pathModel): modelTemplate
       };
   // [num], [String], [bool], [Null], [List] or [Map] value.
