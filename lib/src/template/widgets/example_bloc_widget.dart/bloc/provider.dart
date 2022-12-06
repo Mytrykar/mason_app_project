@@ -25,6 +25,7 @@ ${modelName!.toPascalCase()}? get current => _data;
 """
         : "";
     return """
+$import
 
 class ${widgetName.toPascalCase()}Provider{
   // final apiServise = locator<ApiServise>;
