@@ -3,7 +3,6 @@ import 'package:mason_app_project/src/template/bloc_widget_template.dart';
 
 extension BlocTemplate on BlocWidgetTemplate {
   String get templateBloc {
-    final modelData = modelName != null ? "provider.data" : "";
     return """
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +17,7 @@ class ${widgetName.toPascalCase()}Bloc extends Bloc<${widgetName.toPascalCase()}
     on<GetApiEvent>((event, emit) async {
       emit(LoadingState());
       await Future.delayed(const Duration(seconds: 2));
-      emit(SuccessState($modelData));
+      emit(SuccessState());
     });
   }
 }

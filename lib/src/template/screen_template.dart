@@ -23,20 +23,21 @@ class ScreenTemplate {
   final String routeName;
 
   // /home/{:tag}
-  final String route;
-  // String tag
-  final List<String>? qeryParams;
+  late String _route;
+  // String tag | this.tag
+  List<String>? _queryParams;
 
   final String path;
 
-  const ScreenTemplate({
+  ScreenTemplate(
+    String route, {
     required this.path,
-    required this.route,
-    this.qeryParams,
     required this.routeName,
     required this.projectName,
     required this.screenName,
   });
+
+  String get route => _route;
 
   bool get existScreen => File(path + indexDartPath).existsSync();
 
