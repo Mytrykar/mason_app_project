@@ -2,6 +2,7 @@ library mason_app_project;
 
 import 'dart:io';
 
+import 'src/template/bloc_widget_template.dart';
 import 'src/template/project_template.dart';
 import 'src/template/screen_template.dart';
 import 'src/template/widget_template.dart';
@@ -39,4 +40,10 @@ class MasonFlutterProject {
           required String parent,
           required String path}) =>
       GetWidgetTemplate(projectName, widgetName, parent, path).template;
+  static Map<FileSystemEntity, String> templateBlocWidget(
+          {required String projectName,
+          required String widgetName,
+          required String parent,
+          required String path}) =>
+      BlocWidgetTemplate(projectName, widgetName, parent, path).template;
 }

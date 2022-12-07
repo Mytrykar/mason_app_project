@@ -16,13 +16,9 @@ class BlocWidgetTemplate {
 
   final String path;
 
-  BlocWidgetTemplate(
-      {required this.projectName,
-      required this.widgetName,
-      required this.parent,
-      required this.path});
+  BlocWidgetTemplate(this.projectName, this.widgetName, this.parent, this.path);
 
-  Map<File, String> get template => {
+  Map<FileSystemEntity, String> get template => {
         File(path + pathBlocWidget): templateBlocWidget,
         File(path + pathBloc): templateBloc,
         File(path + pathEvent): templateEvent,
