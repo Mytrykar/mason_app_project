@@ -4,7 +4,9 @@ extension $MobileView on FlutterProjectTemplate {
   String get mobileViewContent => """
 part of 'screen.dart';
 
-class _Mobile extends GetView<HomeController> {
+class _Mobile extends BaseView<HomeController> {
+  @override
+  Map<Key,Size> sizes = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

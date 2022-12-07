@@ -4,7 +4,9 @@ extension $TabletView on FlutterProjectTemplate {
   String get tabletViewContent => """
 part of 'screen.dart';
 
-class _Tablet extends GetView<HomeController> {
+class _Tablet extends BaseView<HomeController> {
+  @override
+  Map<Key,Size> sizes = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

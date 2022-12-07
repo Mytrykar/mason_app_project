@@ -5,7 +5,9 @@ extension $WatchView on ScreenTemplate {
   String get watchViewContent => """
 part of 'screen.dart';
 
-class _Watch extends GetView<${screenName.toPascalCase()}Controller> {
+class _Watch extends BaseView<${screenName.toPascalCase()}Controller> {
+  @override
+  Map<Key,Size> sizes = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

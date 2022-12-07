@@ -31,5 +31,8 @@ dumd widgets are StatelessWidgets, they are static and do not rebuild,
 they should be the most extreme in the widget tree.
 smart widgets are both Stateless and Statefull widgets, they can have animations,
 pass child and/or children widgets. There can be nice widgets but without controllers.
+
+../madels
+!T! = Тут зберігаються ваші моделі, використовуйте https://app.quicktype.io/ для генерації моделей з path = ./jsons/response_example.dart 
 """;
 }

@@ -11,18 +11,6 @@ extension GenRoute on ScreenTemplate {
         DateTime(n.year, n.month, n.day, n.hour, n.minute, n.second),
         [HH, ':', nn, ':', ss]);
 
-    var param = """""";
-    var paramThis = "";
-    if (qeryParams != null) {
-      List<String> qeryParamsThis = [];
-      for (var element in qeryParams!) {
-        qeryParamsThis.add("this.${element.split(" ").last}");
-        param = """
-final $element""";
-      }
-      paramThis = qeryParamsThis.join(",");
-    }
-
     return """
 // This file is created using project_cli. Cli only creates this file.
 // You can edit this file without restrictions.
@@ -36,9 +24,8 @@ final $element""";
 part of '../router.dart';
 
 class ${routeName.toPascalCase()}Route extends GoRouteData {
-  const ${routeName.toPascalCase()}Route($paramThis);
+  const ${routeName.toPascalCase()}Route();
 
-  $param
 
   @override
   Widget build(BuildContext context) => HomeScreen();

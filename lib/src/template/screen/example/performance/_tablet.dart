@@ -5,7 +5,9 @@ extension $TabletView on ScreenTemplate {
   String get tabletViewContent => """
 part of 'screen.dart';
 
-class _Tablet extends GetView<${screenName.toPascalCase()}Controller> {
+class _Tablet extends BaseView<${screenName.toPascalCase()}Controller> {
+  @override
+  Map<Key,Size> sizes = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

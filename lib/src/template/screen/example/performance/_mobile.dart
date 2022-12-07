@@ -5,7 +5,9 @@ extension $MobileView on ScreenTemplate {
   String get mobileViewContent => """
 part of 'screen.dart';
 
-class _Mobile extends GetView<${screenName.toPascalCase()}Controller> {
+class _Mobile extends BaseView<${screenName.toPascalCase()}Controller> {
+  @override
+  Map<Key,Size> sizes = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

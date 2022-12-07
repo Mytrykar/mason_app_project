@@ -5,7 +5,9 @@ extension $DesktopView on ScreenTemplate {
   String get desktopViewContent => """
 part of 'screen.dart';
 
-class _Desktop extends GetView<${screenName.toPascalCase()}Controller> {
+class _Desktop extends BaseView<${screenName.toPascalCase()}Controller> {
+  @override
+  Map<Key,Size> sizes = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -25,14 +25,13 @@ class MasonFlutterProject {
   static Map<FileSystemEntity, String> templateApp(String projectName, path) =>
       FlutterProjectTemplate(projectName: projectName).template(path);
 
-  static Map<FileSystemEntity, String> templateScreen(
+  static ScreenTemplate templateScreen(
           String projectName, path, screenName, route, routeName) =>
       ScreenTemplate(route,
-              path: path,
-              projectName: projectName,
-              routeName: routeName,
-              screenName: screenName)
-          .template;
+          path: path,
+          projectName: projectName,
+          routeName: routeName,
+          screenName: screenName);
 
   static MapEntry<FileSystemEntity, String> templateGetWidget(
           {required String projectName,
