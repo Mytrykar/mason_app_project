@@ -24,8 +24,10 @@ extension GenRoute on ScreenTemplate {
 part of '../router.dart';
 
 class ${routeName.toPascalCase()}Route extends GoRouteData {
-  const ${routeName.toPascalCase()}Route();
+  const ${routeName.toPascalCase()}Route(${queryParam(true).join(",")});
+${queryParam(false).join("""
 
+""")}
 
   @override
   Widget build(BuildContext context) => HomeScreen();

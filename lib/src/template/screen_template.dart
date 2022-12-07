@@ -31,7 +31,7 @@ class ScreenTemplate {
   final String path;
 
   ScreenTemplate(
-    // /home/{tag: as String}{gg: as DateTime}
+    // /home/{tag:String}{gg:DateTime}
     String route, {
     required this.path,
     required this.routeName,
@@ -42,6 +42,24 @@ class ScreenTemplate {
   }
 
   String get route => _route;
+  List<String> queryParam(bool paramThis) {
+    if (_queryParams == null) return [];
+
+    var result = <String>[];
+    final divider = "|";
+    for (var element in _queryParams!) {
+      int on, of;
+      if (paramThis) {
+        on = element.indexOf(divider) + 1;
+        of = element.length;
+      } else {
+        on = 0;
+        of = element.indexOf(divider);
+      }
+      result.add(element.substring(on, of));
+    }
+    return result;
+  }
 
   bool get _existScreen => File(path + indexDartPath).existsSync();
 
@@ -71,33 +89,40 @@ class ScreenTemplate {
   // Serialize a [num], [String], [bool], [Null] value.
   void _disassembleRoute(String route) {
     if (!_hasParams(route)) return;
-    var cleanRoute = route.substring(0, route.lastIndexOf("/"));
-    for (int i = route.lastIndexOf("/"); i < route.length; i++) {
-      String param, type;
-      bool moveNext = true;
-      final params = route.substring(route.lastIndexOf("/")).split("}{");
-      // while (moveNext) {
-      //   if (route[i] == "{") {
-      //     i++;
-      //   }
-
-      //   // && route[i] != "}")
-      // }
+    var cleanRoute = route.substring(0, route.lastIndexOf("/") + 1);
+    String param, type;
+    bool moveNext = true;
+    final params = route
+        .substring(route.lastIndexOf("/{") + 2, route.lastIndexOf("}"))
+        .split("}{");
+    for (var element in params) {
+      final type = element.substring(element.indexOf(":") + 1);
+      final name = element.substring(0, element.indexOf(":"));
+      if (_queryParams == null) _queryParams = [];
+      _queryParams!.add("final $type $name;|this.$name");
+      cleanRoute += "{$name:}";
     }
+
+    _route = cleanRoute;
   }
 
   bool _hasParams(String route) {
-    return route.contains("{");
+    print(route.contains(RegExp(r"[{,}]")));
+    return route.contains(RegExp(r"[{,}]"));
   }
 }
 
 void main(List<String> args) {
   final temp = ScreenTemplate(
-      "/route/{num: as num}{string: as String}{bool: as bool}{null: as Null}",
+      "/route/{num:num}{string:String}{bool:bool}{null:Null}",
       path: Directory.current.path,
       routeName: "Example",
       projectName: "project",
       screenName: "Foo");
   print(temp.route);
   print(temp._queryParams);
+  print(temp.queryParam(false).join("""
+
+"""));
+  print(temp.queryParam(true).join(","));
 }
