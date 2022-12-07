@@ -75,7 +75,7 @@ class ScreenTemplate {
     for (int i = route.lastIndexOf("/"); i < route.length; i++) {
       String param, type;
       bool moveNext = true;
-      final params = route.substring(route.lastIndexOf("/")).split()
+      final params = route.substring(route.lastIndexOf("/")).split("}{");
       // while (moveNext) {
       //   if (route[i] == "{") {
       //     i++;
