@@ -4,6 +4,6 @@ extension Index on FlutterProjectTemplate {
   String get templateIndex => """
 library home_screen;
 
-export 'performance/home_screen}.dart';
+export 'performance/screen.dart';
 """;
 }

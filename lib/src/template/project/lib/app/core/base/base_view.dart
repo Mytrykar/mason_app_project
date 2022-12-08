@@ -1,7 +1,7 @@
 import 'package:mason_app_project/src/template/project_template.dart';
 
-extension BaseWidget on FlutterProjectTemplate {
-  String get templateBaseWidget {
+extension BaseView on FlutterProjectTemplate {
+  String get templateBaseView {
     return """
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';

@@ -13,6 +13,7 @@ import 'package:mason_app_project/src/template/project/lib/app/core/base/base_se
 import 'package:mason_app_project/src/template/project/lib/app/core/base/base_theme.dart';
 import 'package:mason_app_project/src/template/project/lib/app/core/base/base_view_controller.dart';
 import 'package:mason_app_project/src/template/project/lib/app/core/base/base_widget.dart';
+import 'package:mason_app_project/src/template/project/lib/app/core/base/base_view.dart';
 import 'package:mason_app_project/src/template/project/lib/app/router/observer.dart';
 import 'package:mason_app_project/src/template/project/lib/app/router/router.dart';
 import 'package:mason_app_project/src/template/project/lib/app/router/gen_project_cli.dart';
@@ -63,7 +64,8 @@ enum ProjectComponent {
   images,
   screens,
   main,
-  gen_project_cli
+  gen_project_cli,
+  base_view
 }
 
 class FlutterProjectTemplate extends InputParam {
@@ -71,6 +73,7 @@ class FlutterProjectTemplate extends InputParam {
 
   ///key path , value content
   Map<FileSystemEntity, String> template(String path) => {
+        File(path + tree[ProjectComponent.base_view]!): templateBaseView,
         File(path + tree[ProjectComponent.base_bloc_widget]!):
             templateBaseBlocWidget,
         File(path + tree[ProjectComponent.base_screen]!): templateBaseScreen,
@@ -120,6 +123,7 @@ class FlutterProjectTemplate extends InputParam {
       };
 
   static const Map<ProjectComponent, String> tree = {
+    ProjectComponent.base_view: "/lib/app/core/base/base_view.dart",
     ProjectComponent.gen_project_cli: "/lib/app/router/gen_project_cli.dart",
     ProjectComponent.screens: "/lib/ui/screens",
     ProjectComponent.images: "/assets/images",
